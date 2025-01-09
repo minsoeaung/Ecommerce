@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>d91b7c8e-c33f-4c48-927c-b55d4224d9a4</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ecommerce.OrderService\Ecommerce.OrderService.csproj" />
+    <ProjectReference Include="..\Ecommerce.ProductService\Ecommerce.ProductService.csproj" />
+    <ProjectReference Include="..\Ecommerce.Web\Ecommerce.Web.csproj" />
+  </ItemGroup>
+
+</Project>

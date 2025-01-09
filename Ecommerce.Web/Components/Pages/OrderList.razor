@@ -1,0 +1,37 @@
+﻿@page "/orders";
+@using Ecommerce.Model
+@inject HttpClient http
+
+<h3>OrderList</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>CustomerName</th>
+            <th>ProductId</th>
+            <th>Quantity</th>
+            <th>OrderDate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in orders)
+        {
+            <tr>
+                <td>@order.CustomerName</td>
+                <td>@order.ProductId</td>
+                <td>@order.Quantity</td>
+                <td>@order.OrderDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    List<OrderModel> orders = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        orders = await http.GetFromJsonAsync<List<OrderModel>>("https://localhost:7294/api/orders");
+        await base.OnInitializedAsync();
+    }
+}
